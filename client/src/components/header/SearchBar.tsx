@@ -9,7 +9,7 @@ export default function SearchBar() {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="flex items-center w-4/12 pl-5 rounded-xl bg-white h-11 shadow-md hover:shadow-lg transition duration-200">
+    <div className="flex items-center xl:w-4/12 w-auto sm:w-full pl-5 rounded-xl bg-white h-12 shadow-md hover:shadow-lg transition duration-200">
       <MagnifyingGlassIcon className="w-7 h-7 text-slate-400 mr-2" />
       <input
         type="text"

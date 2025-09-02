@@ -16,10 +16,9 @@ function CountrySelect() {
           setIsOpen(!isOpen);
         }}
         className="p-4 rounded-xl flex items-center bg-[var(--color-primary)] hover:bg-[var(--color-primary-d)]
-        transition duration-200 h-11 shadow-md hover:brightness-105"
+        transition duration-200 h-12 shadow-md hover:brightness-105"
       >
         <Flag code={selected.code} className="h-7 w-7 mr-2"/>
-        {selected.name}
         <ChevronDownIcon className="text-white size-5 ml-1 transition duration-200" style={{transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}}/>
       </button>
 
