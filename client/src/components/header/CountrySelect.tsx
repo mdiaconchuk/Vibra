@@ -15,15 +15,16 @@ function CountrySelect() {
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        className="border border-white p-4 rounded-xl flex items-center"
+        className="p-4 rounded-xl flex items-center bg-[var(--color-primary)] hover:bg-[var(--color-primary-d)]
+        transition duration-200 h-11 shadow-md hover:brightness-105"
       >
-        <Flag code={selected.code} className="h-5 w-5 mr-2"/>
+        <Flag code={selected.code} className="h-7 w-7 mr-2"/>
         {selected.name}
-        <ChevronDownIcon className="text-white size-5"/>
+        <ChevronDownIcon className="text-white size-5 ml-1 transition duration-200" style={{transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}}/>
       </button>
 
-      {isOpen && (
-        <div className="absolute border-white border rounded-xl p-4 bg-black">
+        <div className={`absolute rounded-xl p-4 my-1 bg-[var(--color-primary)] transform transition-all duration-200 origin-top
+                ${isOpen ? "opacity-100" : "opacity-0 "}`}>
           {countries.map((country) => (
             <button
               key={country.code}
@@ -31,14 +32,14 @@ function CountrySelect() {
                 setIsSelected(country);
                 setIsOpen(false);
               }}
-              className="rounded-md w-full text-left px-4 py-2 hover:bg-gray-200 flex items-center hover:text-black"
+              className="rounded-md w-full text-left px-4 py-2 hover:bg-[var(--color-primary-d)] transition
+              flex items-center duration-150"
             >
-              <Flag code={country.code} className="h-5 w-5 mr-2"/>
+              <Flag code={country.code} className="h-7 w-7 mr-2"/>
               {country.name}
             </button>
           ))}
         </div>
-      )}
     </div>
   );
 }
