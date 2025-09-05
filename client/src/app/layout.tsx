@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Changa } from "next/font/google";
 import "./globals.css";
+import { CountryContextProvider } from "@/context/CountryContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${changa.variable} antialiased`}
       >
+        <CountryContextProvider>
         {children}
+        </CountryContextProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import CountrySelect from "./CountrySelect";
 
 function Header() {
   return (
-    <div className="w-full border-b border-[var(--color-primary)]">
+    <div className="w-full border-b border-[var(--color-primary)] shadow-sm">
       {/* Desktop XL */}
       <div className="hidden xl:flex items-center justify-center h-14 px-4 my-6 gap-6">
         <img
