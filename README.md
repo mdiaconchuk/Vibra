@@ -60,24 +60,25 @@ This is a personal project by **Matías Diaconchuk** showcasing a responsive web
 
 ## Getting Started
 
-1. Clone the repository:
+Step 1: Clone the repository:
 
-```bash
 git clone https://github.com/yourusername/event-finder.git
 cd event-finder
-```
 
-2. Install dependencies:
+Step 2: Install dependencies:
+
 npm install
 # or
 yarn install
 
-3. Create a .env.local file in the root with your Ticketmaster API key:
+Step 3: Create a .env.local file in the root with your Ticketmaster API key:
+
 NEXT_PUBLIC_CONSUMER_KEY=YOUR_API_KEY_HERE
 
-4. Run the development server:
+Step 4: Run the development server:
+
 npm run dev
 # or
 yarn dev
 
-5. Open http://localhost:3000 to view in browser.
+Step 5: Open http://localhost:3000 to view in browser.
