@@ -19,7 +19,7 @@ export default function EventFetcher({ searchQuery = "" }: Props) {
   const { country } = useCountry();
 
   useEffect(() => {
-    setCurrentPage(1); // <-- reinicia página al cambiar de país
+    setCurrentPage(1);
 
     const cached = sessionStorage.getItem(`events_${country.code}`);
     if (cached) {
@@ -43,7 +43,7 @@ export default function EventFetcher({ searchQuery = "" }: Props) {
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         const data = await response.json();
-        const eventsData = data._embedded?.events || [];
+        const eventsData: Event[] = data._embedded?.events || [];
         const sortedEvents = eventsData.sort(
           (a: Event, b: Event) =>
             new Date(a.dates.start.localDate).getTime() -
@@ -54,8 +54,12 @@ export default function EventFetcher({ searchQuery = "" }: Props) {
           `events_${country.code}`,
           JSON.stringify(sortedEvents)
         );
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Unknown error");
+        }
       } finally {
         setLoading(false);
       }
@@ -73,7 +77,6 @@ export default function EventFetcher({ searchQuery = "" }: Props) {
   if (error) return <p>Error: {error}</p>;
   if (events.length === 0) return <p>No se encontraron eventos.</p>;
 
-  // Filtrar por búsqueda
   const filteredEvents = events.filter((e) =>
     e.name.toLowerCase().includes(searchQuery.toLowerCase())
   );

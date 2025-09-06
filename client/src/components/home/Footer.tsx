@@ -1,5 +1,5 @@
 import React from "react";
-import { EnvelopeIcon, FolderOpenIcon } from "@heroicons/react/24/solid";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {

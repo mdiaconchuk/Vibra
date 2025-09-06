@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import CountrySelect from "./CountrySelect";
+import Image from "next/image";
 
 type HeaderProps = {
   onSearch: (query: string) => void;
@@ -11,10 +12,12 @@ function Header({ onSearch }: HeaderProps) {
     <div className="w-full border-b border-[var(--color-primary)] shadow-sm">
       {/* Desktop XL */}
       <div className="hidden xl:flex items-center justify-center h-8 px-4 my-6 gap-6">
-        <img
+        <Image
           src="/media/images/logo.svg"
           alt="Logo"
-          className="h-11 w-55 hover:rotate-1 transition duration-200"
+          width={220}
+          height={44}
+          className="hover:rotate-1 transition duration-200"
         />
         <SearchBar onSearch={onSearch} />
         <CountrySelect />
@@ -22,10 +25,12 @@ function Header({ onSearch }: HeaderProps) {
 
       {/* Responsive Mobile/Tablet */}
       <div className="flex flex-col items-center justify-between h-auto sm:h-22 px-4 py-4 sm:py-6 gap-4 sm:gap-6 xl:hidden">
-        <img
+        <Image
           src="/media/images/logo.svg"
           alt="Logo"
-          className="h-11 w-auto hover:rotate-1 transition duration-200"
+          width={220}
+          height={44}
+          className="hover:rotate-1 transition duration-200"
         />
 
         <div className="flex w-full gap-4">
@@ -38,5 +43,6 @@ function Header({ onSearch }: HeaderProps) {
 }
 
 export default Header;
+
 
 
