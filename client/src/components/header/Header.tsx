@@ -2,17 +2,21 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import CountrySelect from "./CountrySelect";
 
-function Header() {
+type HeaderProps = {
+  onSearch: (query: string) => void;
+};
+
+function Header({ onSearch }: HeaderProps) {
   return (
     <div className="w-full border-b border-[var(--color-primary)] shadow-sm">
       {/* Desktop XL */}
-      <div className="hidden xl:flex items-center justify-center h-14 px-4 my-6 gap-6">
+      <div className="hidden xl:flex items-center justify-center h-8 px-4 my-6 gap-6">
         <img
           src="/media/images/logo.svg"
           alt="Logo"
           className="h-11 w-55 hover:rotate-1 transition duration-200"
         />
-        <SearchBar />
+        <SearchBar onSearch={onSearch} />
         <CountrySelect />
       </div>
 
@@ -26,7 +30,7 @@ function Header() {
 
         <div className="flex w-full gap-4">
           <CountrySelect />
-          <SearchBar />
+          <SearchBar onSearch={onSearch} />
         </div>
       </div>
     </div>
@@ -34,4 +38,5 @@ function Header() {
 }
 
 export default Header;
+
 

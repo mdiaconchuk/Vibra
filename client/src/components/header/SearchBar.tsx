@@ -1,29 +1,30 @@
 "use client";
 import React, { useState } from "react";
-import {
-  MagnifyingGlassIcon,
-  AdjustmentsHorizontalIcon,
-} from "@heroicons/react/24/solid";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
-export default function SearchBar() {
+type Props = {
+  onSearch: (query: string) => void;
+};
+
+export default function SearchBar({ onSearch }: Props) {
   const [query, setQuery] = useState("");
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+    onSearch(value);
+  };
+
   return (
-    <div className="flex items-center xl:w-4/12 w-auto sm:w-full pl-5 rounded-xl bg-white h-12 shadow-md hover:shadow-lg transition duration-200">
+    <div className="flex items-center w-full sm:w-4/12 rounded-lg bg-white h-11 shadow-md transition duration-200 border border-[var(--color-primary)]">
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Buscar eventos..."
-        className="w-full outline-none placeholder:text-gray-400 text-[var(--color-primary)] h-full"
+        onChange={handleChange}
+        placeholder="Looking for an event?"
+        className="w-full outline-none placeholder:text-gray-400 text-[var(--color-primary)] h-full px-3"
       />
-      <MagnifyingGlassIcon className="cursor-pointer w-7 h-7 text-slate-400 mr-5" />
-      <button
-        className="cursor-pointer bg-[var(--color-cuaternary)] text-white px-4 py-2 rounded-r-xl hover:bg-[var(--color-cuaternary-d)] 
-      transition h-full flex items-center justify-center"
-      >
-        <AdjustmentsHorizontalIcon className="w-7 h-7" />
-      </button>
+      <MagnifyingGlassIcon className="w-7 h-7 text-slate-400 mr-3" />
     </div>
   );
 }
