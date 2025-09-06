@@ -68,14 +68,16 @@ cd event-finder
 ```
 
 2. Install dependencies:
-```npm install```
+npm install
 # or
-```yarn install```
+yarn install
 
 3. Create a .env.local file in the root with your Ticketmaster API key:
 NEXT_PUBLIC_CONSUMER_KEY=YOUR_API_KEY_HERE
 
 4. Run the development server:
-```npm run dev```
+npm run dev
 # or
-```yarn dev```
+yarn dev
+
+5. Open http://localhost:3000 to view in browser.
